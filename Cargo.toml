@@ -1,0 +1,20 @@
+[workspace]
+members = ["crates/belote-core", "crates/belote-server", "crates/belote-client"]
+default-members = ["crates/belote-core", "crates/belote-server"]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+
+[workspace.dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+belote-core = { path = "crates/belote-core" }
+
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
+strip = true

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#102f28" />
+    <meta name="description" content="A private Bulgarian belote table for you and your friends. 32 cards. Good company." />
+    <title>Belote Club — Good cards. Better company.</title>
+    <link rel="icon" href="/assets/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div id="loading" class="loading"><span>♠</span><h1>Setting your table…</h1><p>Good cards. Better company.</p></div>
+    <script type="module">
+      import init from '/pkg/belote_client.js';
+      init().catch(error => {
+        console.error(error);
+        document.querySelector('#loading').innerHTML = '<span>♠</span><h1>The table isn’t ready yet.</h1><p>Build the browser client with <code>./scripts/build.sh</code>, then reload this page.</p>';
+      });
+    </script>
+    <noscript>This game needs JavaScript and WebAssembly enabled in your browser.</noscript>
+  </body>
+</html>
